@@ -24,14 +24,14 @@
                     {% for question in questions%}
                     <div class='question'>
                             <div class='question-title'>
-                                <h3>{{question.question}}</h3>
+                                <h3>{{question.text}}</h3>
                             </div>
                             <div class='answers'>
-                                {% for i in question.Questions.all %}
-                                    {% if i.answer %}
+                                {% for i in question.Question.all %}
+                                    {% if i.text %}
                                     <div class="radio">
-                                        <input id={{i.id}} type="radio" name={{question.id}} value={{i.awswer_number}}>
-                                        <label for={{i.id}}>{{i.answer}}</label> <br>
+                                        <input id={{i.id}} type="radio" name={{question.number}} value={{i.number}}>
+                                        <label for={{i.id}}>{{i.text}}</label> <br>
                                     </div>
                                     {% endif%}
                                 {% endfor %}
