@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href = "{% static 'quest_app/css/style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+
+    <title>Анкета</title>
+</head>
+<body style="margin: 0">
+    <div class='main-container'>
+        <div style="width:1100px, margin:auto">
+            <form method="POST">
+                {% csrf_token %}
+                {% if questions %}
+                    {% for question in questions %}
+                    <div class='question'>
+                        <div class='question-title'>
+                            <h3>{{question.text}}</h3>
+                        </div>
+                        <div class='answers'>
+                            {% for answer in question.Question.all %}
+                                {% if answer.text %}
+                                <div class="radio">
+                                    <input id={{answer.id}} type="radio" name={{question.number}} value={{answer.number}}>
+                                    <label for={{answer.id}}>{{answer.text}}</label> <br>
+                                </div>
+                                {% endif%}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class='question'>
+                        <div class='question-title'>
+                            <h3>Укажите количество полных лет</h3>
+                            <input id="age" type="text" name="15">
+                        </div>
+
+                    </div>
+                    <div class='question'>
+                        <div class='question-title'>
+                            <h3>Укажите Ваш пол</h3>
+                        </div>
+                        <div class='answers'>
+                            <div class="radio">
+                                <input id='male' type="radio" name='16' value='0'>
+                                <label for='male'>Мужской</label> <br>
+                            </div>
+                            <div class="radio">
+                                <input id='female' type="radio" name='16' value='1'>
+                                <label for='female'>Женский</label> <br>
+                            </div>
+                        </div>
+                    </div>
+
+                {%else%}
+                    <p>В базе данных нет вопросов</p>
+                {% endif %}
+
+                <div class='container-button'>
+                    <button class='button-send' type="submit">
+                        <input class='input-send' type="submit" value="Отправить">
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>
