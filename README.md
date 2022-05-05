@@ -6,3 +6,13 @@
 - trainer_app для проекта «Тренажёр развития финансовой грамотности начинающего предпринимателя» URL: <домен>/trainer
 
 TODO: разобраться, как интегрировать сайт на вордпрессе 
+
+## Initial Setup 
+```
+$ python manage.py createsuperuser 
+$ python manage.py makemigrations <appname>
+```
+## Launching
+```
+$ python manage.py runserver
+```
