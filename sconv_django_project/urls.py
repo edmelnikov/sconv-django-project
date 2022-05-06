@@ -21,6 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('wordpress_app.urls')),
-    path('questionnaire', include('quest_app.urls')),
     path('trainer', include('trainer_app.urls')),
 ]

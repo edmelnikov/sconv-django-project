@@ -6,6 +6,13 @@ from .ml_model.ml_model import dummy_model
 
 # Create your views here.
 
+
+def start_page(request):
+    return render(request, 'quest_app/index.html')
+
+def results(request):
+    return render(request, 'quest_app/trajectory_descr.html') 
+
 def index(request):
     answers = Answer.objects.all()
     questions = Question.objects.order_by('id')

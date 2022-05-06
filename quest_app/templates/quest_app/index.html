@@ -1,12 +1,64 @@
 <!-- Стартовая страница -->
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href = "{% static 'quest_app/css/style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 
+
+    <title>Стартовая страница</title>
+</head>
+<body style="margin: 0">
+    <div class="title-index">
+        <div class='text-index'>
+            Приложение для автоматизации маршрутов одарённой личности на основе данных биографий
+        </div>
+    </div>
+    <div class='index-container'>
+        <div class='descriptions'>
+            <div class='index-description'>
+                <div class='index-description-img'>
+                    <img class="index-img" src="{% static 'quest_app/img/index-img1.jpg' %}" alt="photo">
+                </div>
+                <div class='index-description-text'>
+                    Мы проанализировали результаты исследования биографий различных известных личностей
+                </div>
+            </div>
+            <div class='index-description'>
+                <div class='index-description-img'>
+                    <img class="index-img" src="{% static 'quest_app/img/index-img2.jpg' %}" alt="photo">
+                </div>
+                <div class='index-description-text'>
+                    Заполни анкету для соотнесения твоей жизненной траектории с выявленными известными
+                </div>
+            </div>
+            <div class='index-description'>
+                <div class='index-description-img'>
+                    <img class="index-img" src="{% static 'quest_app/img/index-img3.jpg' %}" alt="photo">
+                </div>
+                <div class='index-description-text'>
+                    Получи персональные рекомендации для построения твоей жизненной траектории
+                </div>
+            </div>
+        </div>
+
+        <a class='index-a' href="/questionnaire">
+            <div class='button-start-index'>
+                <div class='button-start-text'>Начать</div>
+            </div>
+        </a>
+
+
+    </div>
+
+    
 </body>
 </html>

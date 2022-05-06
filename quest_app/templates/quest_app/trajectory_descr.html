@@ -14,10 +14,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-    <title>Анкета</title>
+    <title>Результаты</title>
 </head>
 <body style="margin: 0">
-    <div class='main-container'>
+    <div class="title-index">
+        <div class='text-index'>
+            Результаты
+        </div>
+    </div>
+
+    <div class='result-container'>
+        <div class='personality-result'>
+            <div class='personality-foto'>
+                <img class="personality-img" src="{% static 'quest_app/img/test-result.jpg' %}" alt="photo" width="180px" height="180px">
+            </div>
+            <div class='personality'>
+                <div class='personality-type'>
+                    Твой тип личности: _________
+                </div>
+                <div class="personality-description">
+                    Экстремальную горку «Аквасфера» в нижегородском аквапарке «Океанис» закрыли для посетителей. Об этом сообщается в группе развлекательного водного комплекса в соцсети «ВКонтакте».
+
+                    Особенностью данного аттракциона является то, что посетители скользят по бокам внутри сферы. Закрыть горку пришлось, так как не все посетители соблюдают правила безопасности при спуске.
+                </div>
+            </div>
+        </div>
+        
+        <a class='results-a' href="https://sconv.ru/">
+            <div class='button-results'>
+                <div class='button-results-text'>На главную</div>
+            </div>
+        </a>
+
+
+    </div>
+
+    <!--<div class='main-container'>
         Номер траектории: {{ trajectory.number }}
         <br>
         Название траектории: {{ trajectory.name }}
@@ -25,6 +57,6 @@
         Текст траектории: {{ trajectory.description }}
         <br>
         Возраст первого успеха: {{ trajectory.initial_success_age }}
-    </div>
+    </div>-->
 </body>
 </html>
