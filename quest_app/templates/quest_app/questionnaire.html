@@ -13,8 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-
-
     <title>Анкета</title>
 </head>
 <body style="margin: 0">
@@ -24,30 +22,29 @@
                 {% csrf_token %}
                 {% if questions %}
                     {% for question in questions %}
-                    <div class='question'>
-                        <div class='question-title'>
-                            <h3>{{question.text}}</h3>
+                        <div class='question {{ question.number }}' style='display: none'>
+                            <div class='question-title'>
+                                <h3>{{question.text}}</h3>
+                            </div>
+                            <div class='answers'>
+                                {% for answer in question.Question.all %}
+                                    {% if answer.text %}
+                                    <div class="radio">
+                                        <input id={{answer.id}} type="radio" name={{question.number}} value={{answer.number}}>
+                                        <label for={{answer.id}}>{{answer.text}}</label> <br>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
-                        <div class='answers'>
-                            {% for answer in question.Question.all %}
-                                {% if answer.text %}
-                                <div class="radio">
-                                    <input id={{answer.id}} type="radio" name={{question.number}} value={{answer.number}}>
-                                    <label for={{answer.id}}>{{answer.text}}</label> <br>
-                                </div>
-                                {% endif%}
-                            {% endfor %}
-                        </div>
-                    </div>
                     {% endfor %}
-                    <div class='question'>
+                    <div class='question 15' style='display: none'>
                         <div class='question-title'>
                             <h3>Укажите количество полных лет</h3>
                             <input id="age" type="text" name="15">
                         </div>
-
                     </div>
-                    <div class='question'>
+                    <div class='question 16' style='display: none'>
                         <div class='question-title'>
                             <h3>Укажите Ваш пол</h3>
                         </div>
@@ -63,18 +60,20 @@
                         </div>
                     </div>
 
+                    <div class='container-button'>
+                        <button class='button-next-q' type="button" onclick="show_next_q()" id="clockButton" style='display: block'>Следующий вопрос</button>
+                        <button class='button-send' type="submit" style='display: none'>
+                            <input class='input-send' type="submit" value="Отправить">
+                        </button>
+                    </div>
                 {%else%}
                     <p>В базе данных нет вопросов</p>
                 {% endif %}
 
-                <div class='container-button'>
-                    <button class='button-send' type="submit">
-                        <input class='input-send' type="submit" value="Отправить">
-                    </button>
-                </div>
-                
             </form>
         </div>
     </div>
+
+    <script src="{% static 'quest_app/js/script.js' %}"></script>
 </body>
 </html>

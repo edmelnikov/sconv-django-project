@@ -2,18 +2,17 @@ from tkinter.messagebox import QUESTION
 from django.shortcuts import render, HttpResponse
 from .models import Question, Answer, Trajectory
 from .ml_model.ml_model import dummy_model
-#import ml_model
+from django.http import Http404
+from django.shortcuts import get_object_or_404
 
-# Create your views here.
+# import ml_model
 
-
-def start_page(request):
-    return render(request, 'quest_app/index.html')
-
-def results(request):
-    return render(request, 'quest_app/trajectory_descr.html') 
 
 def index(request):
+    return render(request, 'quest_app/index.html')
+
+
+def questionnaire(request):
     answers = Answer.objects.all()
     questions = Question.objects.order_by('id')
 
@@ -24,6 +23,14 @@ def index(request):
         trajectory_num = dummy_model(user_answers)  # predict the trajectory
         trajectory = Trajectory.objects.get(number=trajectory_num)
 
-        return render(request, 'quest_app/trajectory_descr.html', {'trajectory': trajectory})  # and return the page with the predicted trajectory
+        #  return render(request, 'quest_app/trajectory_descr.html', {'trajectory': trajectory})  # and return the page with the predicted trajectory
     else:
         return render(request, 'quest_app/questionnaire.html', {'questions': questions, 'answers': answers})
+
+
+def results(request):
+    return render(request, 'quest_app/trajectory_descr.html')
+
+
+def about(request):
+    return render(request, 'quest_app/about.html')
