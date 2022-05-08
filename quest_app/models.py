@@ -4,7 +4,7 @@ from django.db import models
 class Question(models.Model):
     number = models.IntegerField('Номер критерия', unique=True)
     text = models.TextField('Текст вопроса')
-
+    image = models.ImageField(null=True, blank=True, upload_to='quest_app/img')
     def __str__(self):
         return self.text
 
@@ -23,6 +23,8 @@ class Trajectory(models.Model):
     name = models.CharField('Название траектории', max_length=128)
     description = models.TextField('Описание траектории')
     initial_success_age = models.IntegerField('Возраст первого успеха')
+    image = models.ImageField(null=True, blank=True, upload_to='quest_app/img')
+
 
     def __str__(self):
         return self.name
@@ -31,6 +33,7 @@ class Trajectory(models.Model):
 class SuccessStory(models.Model):
     name = models.CharField('Имя личности', max_length=128)
     description = models.TextField('Описание первой истории успеха')
-
+    image = models.ImageField(null=True, blank=True, upload_to='quest_app/img')
     def __str__(self):
         return self.name
+

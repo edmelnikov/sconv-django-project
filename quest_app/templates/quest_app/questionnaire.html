@@ -31,6 +31,9 @@
                 {% if questions %}
                     {% for question in questions %}
                         <div class="question {{ question.number }}" style="display: none">
+                            {% if question.image %}
+                                <img src="{{ question.image.url }}">
+                            {% endif %}
                             <div class="question-title">
                                 <h3>{{question.text}}</h3>
                             </div>
