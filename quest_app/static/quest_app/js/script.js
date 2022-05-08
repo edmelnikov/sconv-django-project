@@ -2,9 +2,20 @@
 // this code and the idea behind it are both fucking disgusting, but I don't really give a shit since I don't have enough time to make it any cleaner
 // good luck figuring it out :)
 
-document.getElementsByClassName("question 1")[0].style.display = 'block'; // show first question
-
 let global_q_counter = 1; // global question counter
+let max_q_number = 16; // maximum number of questions
+
+document.getElementsByClassName("question 1")[0].style.display = 'block'; // show first question
+document.getElementById("progress-bar").style.width = 100/max_q_number + "%"; // set initial progress
+
+/* Progress bar */
+function move_progress_bar(max_q_num, q_num){
+    let step_size = 100 / max_q_num;
+
+    let elem = document.getElementById("progress-bar");
+    elem.style.width = q_num*step_size + "%";
+
+}
 
 /* Check if one of the radio buttons with name=q_num is selected */
 /* q_num is a question number */
@@ -29,8 +40,6 @@ function is_text_field_filled(q_num){
 
 /* Show next question or show warning if current question hasn't been answered */
 function show_next_q() {
-    max_q_number = 16; // maximum number of questions
-
     if (is_radio_selected(global_q_counter) || is_text_field_filled(global_q_counter)) {
         let elements = document.getElementsByClassName("question " + global_q_counter.toString());
         if (elements.length > 0) {
@@ -45,6 +54,9 @@ function show_next_q() {
                 document.getElementsByClassName("button-send")[0].style.display = 'block'; // and we show the "send" button     
             }
         }
+
+        move_progress_bar(max_q_number, global_q_counter);
+
     }
     else {
         if (global_q_counter == 15) { // this doesn't look good 
@@ -65,4 +77,4 @@ function check_last_q() {
         window.alert("Выберите вариант ответа");
         return false;
     }
-} 
+}
