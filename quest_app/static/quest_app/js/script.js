@@ -5,14 +5,33 @@
 document.getElementsByClassName("question 1")[0].style.display = 'block'; // show first question
 
 let global_q_counter = 1; // global question counter
+
+/* Check if one of the radio buttons with name=q_num is selected */
+/* q_num is a question number */
+function is_radio_selected(q_num){
+    if (document.querySelector('input[name="' + q_num.toString() + '"]:checked') == null) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/* Check if the text field with name=q_num is filled */
+function is_text_field_filled(q_num){
+    if (document.getElementById("answer-age").value == "") {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/* Show next question or show warning if current question hasn't been answered */
 function show_next_q() {
     max_q_number = 16; // maximum number of questions
 
-    // console.log(global_q_counter);
-
-    // TODO: show a warning message when none of the radio buttons are pressed  
-
-    if (global_q_counter < max_q_number) {
+    if (is_radio_selected(global_q_counter) || is_text_field_filled(global_q_counter)) {
         let elements = document.getElementsByClassName("question " + global_q_counter.toString());
         if (elements.length > 0) {
             elements[0].style.display = 'none';  // hide current question
@@ -27,4 +46,23 @@ function show_next_q() {
             }
         }
     }
+    else {
+        if (global_q_counter == 15) { // this doesn't look good 
+            window.alert("Введите возраст");
+        }
+        else {
+            window.alert("Выберите вариант ответа");
+        }
+    }
 }
+
+/* Check if the last question is answered */
+function check_last_q() { 
+    if (is_radio_selected(global_q_counter)) {
+        return true;
+    }
+    else {
+        window.alert("Выберите вариант ответа");
+        return false;
+    }
+} 

@@ -8,8 +8,8 @@ from django.shortcuts import get_object_or_404
 # import ml_model
 
 
-def index(request):
-    return render(request, 'quest_app/index.html')
+def home(request):
+    return render(request, 'quest_app/home.html')
 
 
 def questionnaire(request):
@@ -21,9 +21,10 @@ def questionnaire(request):
         print(request.POST)
         user_answers = request.POST.dict()  # get answers from the form
         trajectory_num = dummy_model(user_answers)  # predict the trajectory
-        trajectory = Trajectory.objects.get(number=trajectory_num)
+        # trajectory = Trajectory.objects.get(number=trajectory_num)
 
-        #  return render(request, 'quest_app/trajectory_descr.html', {'trajectory': trajectory})  # and return the page with the predicted trajectory
+        # return render(request, 'quest_app/trajectory_descr.html', {'trajectory': trajectory})  # and return the page with the predicted trajectory
+        return HttpResponse(list(request.POST.items())[1:])
     else:
         return render(request, 'quest_app/questionnaire.html', {'questions': questions, 'answers': answers})
 

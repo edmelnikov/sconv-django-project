@@ -16,64 +16,62 @@
     <title>Анкета</title>
 </head>
 <body style="margin: 0">
-    <div class='main-container'>
+    <div class="main-container">
         <div style="width:1100px, margin:auto">
-            <form method="POST">
+            <form method="POST" onsubmit="return check_last_q();">
                 {% csrf_token %}
                 {% if questions %}
                     {% for question in questions %}
-                        <div class='question {{ question.number }}' style='display: none'>
-                            <div class='question-title'>
+                        <div class="question {{ question.number }}" style="display: none">
+                            <div class="question-title">
                                 <h3>{{question.text}}</h3>
                             </div>
-                            <div class='answers'>
+                            <div class="answers">
                                 {% for answer in question.Question.all %}
                                     {% if answer.text %}
                                     <div class="radio">
-                                        <input id={{answer.id}} type="radio" name={{question.number}} value={{answer.number}}>
-                                        <label for={{answer.id}}>{{answer.text}}</label> <br>
+                                        <input id="answer-{{answer.id}}" type="radio" name={{question.number}} value={{answer.number}}>
+                                        <label for="answer-{{answer.id}}">{{answer.text}}</label> <br>
                                     </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
                     {% endfor %}
-                    <div class='question 15' style='display: none'>
-                        <div class='question-title'>
+                    <div class="question 15" style="display: none">
+                        <div class="question-title">
                             <h3>Укажите количество полных лет</h3>
-                            <input id="age" type="text" name="15">
+                            <input id="answer-age" type="number" name="15">
                         </div>
                     </div>
-                    <div class='question 16' style='display: none'>
-                        <div class='question-title'>
+                    <div class="question 16" style='display: none'>
+                        <div class="question-title">
                             <h3>Укажите Ваш пол</h3>
                         </div>
-                        <div class='answers'>
+                        <div class="answers">
                             <div class="radio">
-                                <input id='male' type="radio" name='16' value='0'>
-                                <label for='male'>Мужской</label> <br>
+                                <input id="answer-male" type="radio" name="16" value="0">
+                                <label for="answer-male">Мужской</label> <br>
                             </div>
                             <div class="radio">
-                                <input id='female' type="radio" name='16' value='1'>
-                                <label for='female'>Женский</label> <br>
+                                <input id="answer-female" type="radio" name="16" value="1">
+                                <label for="answer-female">Женский</label> <br>
                             </div>
                         </div>
                     </div>
 
-                    <div class='container-button'>
-                        <button class='button-next-q' type="button" onclick="show_next_q()" id="clockButton" style='display: block'>Следующий вопрос</button>
-                        <button class='button-send' type="submit" style='display: none'>
-                            <input class='input-send' type="submit" value="Отправить">
+                    <div class="container-button">
+                        <button class="button-next-q" type="button" onclick="show_next_q()" id="clockButton" style="display: block">Следующий вопрос</button>
+                        <button class="button-send" type="submit" style="display: none">
+                            <input class="input-send" type="submit" value="Отправить">
                         </button>
                     </div>
                 {%else%}
                     <p>В базе данных нет вопросов</p>
                 {% endif %}
-
             </form>
         </div>
     </div>
-
     <script src="{% static 'quest_app/js/script.js' %}"></script>
 </body>
 </html>
