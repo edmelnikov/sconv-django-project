@@ -25,22 +25,32 @@
 
     <div class='result-container'>
         <div class='personality-result'>
-            <div class='personality-foto'>
-                <img class="personality-img" src="{% static 'quest_app/img/test-result.jpg' %}" alt="photo" width="180px" height="180px">
-            </div>
-            <div class='personality'>
-                <div class='personality-type'>
-                    Твой тип личности: _________
-                </div>
-                <div class="personality-description">
-                    Экстремальную горку «Аквасфера» в нижегородском аквапарке «Океанис» закрыли для посетителей. Об этом сообщается в группе развлекательного водного комплекса в соцсети «ВКонтакте».
-
-                    Особенностью данного аттракциона является то, что посетители скользят по бокам внутри сферы. Закрыть горку пришлось, так как не все посетители соблюдают правила безопасности при спуске.
-                </div>
-            </div>
+            {% if trajectory != None %}
+                {% if years_to_success < 0 %}
+                    <p> Советуем поторопиться, либо выбрать стратегию позднего успеха! </p>
+                {% endif %}
+                    <div class='personality-foto'>
+                        <!--<img class="personality-img" src="{% static 'quest_app/img/test-result.jpg' %}" alt="photo" width="180px" height="180px">-->
+                        <img class="personality-img" src="{{ trajectory.image.url }}" alt="photo" width="180px" height="180px">
+                    </div>
+                    <div class='personality'>
+                        <div class='personality-type'>
+                            {% if years_to_success < 0 %}
+                                История успеха {{ trajectory.name }}
+                            {% else %}
+                                Твой тип личности: {{ trajectory.name }}
+                            {% endif %}
+                        </div>
+                        <div class="personality-description">
+                            {{ trajectory.description }}
+                        </div>
+                    </div>
+            {% else %}
+                <p>Траектория не найдена</p>
+            {% endif %}
         </div>
         
-        <a class='results-a' href="https://sconv.ru/">
+        <a class='results-a' href="/">
             <div class='button-results'>
                 <div class='button-results-text'>На главную</div>
             </div>

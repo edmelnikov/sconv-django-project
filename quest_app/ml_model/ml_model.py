@@ -5,6 +5,8 @@ import random
 # the input is a dictionary with answers
 # the output is a number of predicted class
 def dummy_model(ans_dict):
+    ans_dict = ans_dict.copy()
+
     ans_dict.pop(list(ans_dict.keys())[0], None)  # remove the first element (csrfmiddlewaretoken)
     ans_dict.pop('15', None)  # pop the answers that don't take part in prediction
     ans_dict.pop('16', None)
