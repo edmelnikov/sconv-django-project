@@ -30,7 +30,9 @@ function is_radio_selected(q_num){
 
 /* Check if the text field with name=q_num is filled */
 function is_text_field_filled(q_num){
-    if (document.getElementById("answer-age").value == "") {
+    let form_value = document.getElementById("answer-age").value;
+    if (form_value == "" || !RegExp("^[1-9][0-9]?$|^100$").test(form_value)) {
+
         return false;
     }
     else {

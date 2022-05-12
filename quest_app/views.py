@@ -18,17 +18,20 @@ def questionnaire(request):
     answers = Answer.objects.all()
     questions = Question.objects.order_by('id')
 
-    if request.method == "POST":
+    if request.method == "POST":  # if a user makes a POST request (i. e. answers the questionnaire)
         # print(request.POST)
         user_answers = request.POST.dict()  # get answers from the form
         trajectory_num = dummy_model(user_answers)  # predict the trajectory
-
-        years_to_success = -1
+        trajectory_num = 1
         try:
             trajectory = Trajectory.objects.get(number=trajectory_num)  # check if the trajectory exists
-            years_to_success = int(trajectory.initial_success_age) - int(user_answers['15'])
         except Trajectory.DoesNotExist:
             trajectory = None
+
+        if trajectory is not None:
+            years_to_success = int(trajectory.initial_success_age) - int(user_answers['15'])  # calculate years to success, if the trajectory exists
+        else:
+            years_to_success = -1
 
         context = {'trajectory': trajectory, 'years_to_success': years_to_success}
         if years_to_success < 0:  # search for a random success story
@@ -37,12 +40,11 @@ def questionnaire(request):
             rand_story = SuccessStory.objects.get(id=rand_story_id)
             context['trajectory'] = rand_story
 
-        return render(request, 'quest_app/trajectory_descr.html', context)  # and return the page with the predicted trajectory
+        return render(request, 'quest_app/trajectory_descr.html', context)  # and return a page with the predicted trajectory
         # return HttpResponse(list(request.POST.items())[1:])
-    else:
+    else:  # if a user make a GET request
         context = {'questions': questions, 'answers': answers}
-        print(SuccessStory.objects.all().get(id=1))
-        return render(request, 'quest_app/questionnaire.html', context)
+        return render(request, 'quest_app/questionnaire.html', context)  # render a page with questions and answers
 
 
 def results(request):
