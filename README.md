@@ -4,8 +4,12 @@
 
 ## Initial Setup 
 ```
-$ python manage.py createsuperuser 
 $ python manage.py makemigrations <appname>
+$ python manage.py migrate
+
+# optional 
+$ python manage.py createsuperuser 
+
 ```
 ## Launching
 ```
