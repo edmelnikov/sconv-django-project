@@ -39,12 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # apps
-    'wordpress_app',
     'quest_app',
-    'trainer_app',
-
-    # WordPress api
-    # 'wordpress_api'
 ]
 
 MIDDLEWARE = [
