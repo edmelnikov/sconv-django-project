@@ -1,5 +1,7 @@
 body{
-    background-color:#EAEAEA ;
+    /*background-color:#EAEAEA ;*/
+    background-image: url("../img/im6.png");
+    background-size: 150%;
 }
 
 .main-container{
@@ -7,47 +9,80 @@ body{
 }
 
 .question{
-    margin: auto;
-    width: 1100px;
     min-height: 100px;
     max-height: 100%;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;   
     display: block;
     margin-bottom: 20px;
-    background-color: #FFFFFF;;
 }
 h3{
     margin-block-start: 0;
     margin-block-end: 0;
 }
 
-.question-title{
-    padding-top:10px;
-    margin-top: 20px;
-    width: 1000px;
-    margin-left:auto;
+.question-img{
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
     margin-right: auto;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    color: #1C1C27;
+    display: block;
+    margin-bottom: 30px;
+    /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);*/
+    border-radius: 30px;
+}
+
+.question-15{
+    height: 400px;
 }
 
 .answers{
-    font-family: 'Poppins', sans-serif;
+    min-height: 500px;
     font-style: normal;
-    margin-right: 13px;
-    font-weight: 400;
-    font-size: 16.2934px;
-    line-height: 20px;
-    width:1000px;
-    margin-left:auto;
-    margin-right: auto;
-    padding-bottom: 20px;
-    padding-top:20px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.answer-text{
+    margin-top: 20px;
+    min-height: 100px;
+    max-height: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.answers-gender{
+    min-height: 400px;
+    font-style: normal;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#answer-16{
+    min-height: 300px;
+}
+
+.answer-text-15{
+    margin-top: 20px;
+    min-height: 300px;
+    font-style: normal;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.list-unstyled li{
+    padding: 20px;
 }
 
 .input-send{
@@ -76,19 +111,15 @@ h3{
     border-radius: 20px;
 }
 
-.container-button{
-    margin: auto;
-    width: 200px;
-    margin-bottom: 20px;
-}
-
 .answers label{
-        display: inline-block;
-        cursor: pointer;
-        position: relative;
-        padding-left: 25px;
-        margin-right: 15px;
-        font-size: 17px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    font-size: 20px;
+    color: #1C1C27;
 }
 
 .answers input[type=radio] {
@@ -98,12 +129,11 @@ h3{
 .answers label:before {
         content: "";
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-right: 10px;
+        width: 25px;
+        height: 25px;
         position: absolute;
         left: 0;
-        bottom: 1px;
+        margin-top: 5px;
         background-color: #EAEAEA ;
         box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
 }
@@ -115,7 +145,7 @@ h3{
 input[type=radio]:checked + label:before {
     content: "\2022";
     color: #1C1C27;
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     line-height: 18px;
 }
@@ -123,9 +153,6 @@ input[type=radio]:checked + label:before {
 
 .title-index{
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1100px;
     min-height: 70px;
     max-height: 100%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -134,22 +161,39 @@ input[type=radio]:checked + label:before {
     background-color: #ffffff;
     display: flex;
     align-items: center;
+    padding: 20px;
 }
 
 .text-index{
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
     font-size: 20px;
-    line-height: 21px;
     color: #1C1C27;
 }
 
-.index-container{
+.text-question-15{
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    width: 1100px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 20px;
+    color: #1C1C27;
+}
+
+#answer-age{
+    margin-top: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid;
+}
+
+.index-container{
     min-height: 500px;
     max-height: 100%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -166,12 +210,12 @@ input[type=radio]:checked + label:before {
 
 .index-description{
     margin-top: 60px;
-    margin-left: auto;
-    margin-right: auto;
     border: 1px solid #ffffff;
 }
+
 .index-description-text{
-    float: left;
+    margin-left: auto;
+    margin-right: auto;
     width: 200px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -202,6 +246,7 @@ input[type=radio]:checked + label:before {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     margin-top: 45px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
 }
@@ -221,11 +266,8 @@ input[type=radio]:checked + label:before {
 }
 
 .result-container{
-    margin-left: auto;
-    margin-right: auto;
-    width: 1100px;
-    min-height: 500px;
     max-height: 100%;
+    min-height: 500px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;   
     display: block;
@@ -234,50 +276,47 @@ input[type=radio]:checked + label:before {
     border: 1px solid #ffffff;
 }
 
-.personality-result{
-    margin:auto;
-    width: 1000px;
-    display: flex;
-    margin-top: 50px;
-}
-
-.personality-foto{
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
+.personality{
+    margin-top: 20px;
 }
 
 .personality-img{
-    margin: auto;
+    margin-top: 20px;
 }
 
-.personality{
-    margin-left: 40px;
-    width: 750px;
+.personality-img img{
+    border-radius: 10px;
+}
+
+.text-advice{
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1C1C27;
+    font-style: normal;
+    line-height: 21px;
 }
 
 .personality-type{
-    margin-top: 20px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 21px;
     color: #1C1C27;
     text-align: center;
+    color: #1C1C27;
+    margin-bottom: 10px;
 }
 
 .personality-description{
-    width: 650px;
-    margin-top: 40px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 21px;
     color: #1C1C27;
-    min-height: 230px;
 }
 
 .button-results{
@@ -311,17 +350,21 @@ input[type=radio]:checked + label:before {
 
 /* Progress bar styles */
 #progress-bar-container {
-    width: 300px;
     margin: 0 auto;
+    width: 60%;
 }
 
 #progress-bar-background {
-  width: 100%;
   background-color: grey;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
 }
 
 #progress-bar {
-  width: 0%;
   height: 30px;
-  background-color: green;
+  background-image: url("../img/chevron-double-right.svg");
+  background-color: white;
+  background-size: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
 }
