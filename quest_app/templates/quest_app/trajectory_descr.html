@@ -53,9 +53,12 @@
                                         {{ trajectory.description }}
                                     </div>
                                 </div> <br>
-                                 {% if years_to_success < 0 %}
-                                    <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
-                                 {% endif %}
+                                    {% if years_to_success < 0 %}
+                                        <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
+                                    {% else %}
+                                        <!-- For testing purposes. May be removed later  -->
+                                        <div class="text-advice"> До успеха осталось {{ years_to_success }}  лет </div>
+                                    {% endif %}
                             </div>
 <!--                    {% if years_to_success < 0 %}
                         <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>

@@ -4,11 +4,11 @@ from .models import Question, Answer, Trajectory, SuccessStory
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
-from .ml_models.main import predict_trajectory
+from .ml_models.main import predict_trajectory, predict_success_age
 import time
 import random
-# import ml_models
 import os
+
 
 def home(request):
     return render(request, 'quest_app/home.html')
@@ -20,7 +20,9 @@ def questionnaire(request):
 
     if request.method == "POST":  # if a user makes a POST request (i. e. answers the questionnaire)
         user_answers = request.POST.dict()  # get answers from the form
+
         trajectory_num = predict_trajectory(user_answers, verbose=True)  # predict the trajectory
+        success_age = predict_success_age(user_answers, verbose=True)  # predict the age of initial success
 
         try:  # check if the trajectory exists
             trajectory = Trajectory.objects.get(number=trajectory_num)
@@ -29,7 +31,7 @@ def questionnaire(request):
 
         years_to_success = -1
         if trajectory is not None:
-            years_to_success = int(trajectory.initial_success_age) - int(user_answers['15'])  # calculate years to success, if the predicted trajectory exists
+            years_to_success = int(success_age) - int(user_answers['15'])  # calculate years to success, if the predicted trajectory exists
 
         context = {
             'trajectory': trajectory,  # either a predicted trajectory or a random success story
