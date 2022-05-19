@@ -34,9 +34,11 @@
                         <div class="row mb-5">
                             <div class="col-lg-3 col-sm-12 mb-sm-5 mt-sm-5 text-center">
                                 <!--<img class="personality-img" src="{% static 'quest_app/img/test-result.jpg' %}" alt="photo" width="180px" height="180px">-->
-                                <div class="personality-img">
-                                    <img class="img-fluid" src="{{ trajectory.image.url }}" alt="photo">
-                                </div>
+                                {% if trajectory.image %}
+                                    <div class="personality-img">
+                                        <img class="img-fluid" src="{{ trajectory.image.url }}" alt="photo">
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="col-lg-9 col-sm-12">
                                 <div class='personality'>
