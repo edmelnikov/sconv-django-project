@@ -66,3 +66,34 @@ def predict_trajectory(ans_dict, verbose=False):
     return class_num
 
 
+
+def predict_age(ans_dict, verbose=False):
+    ans_dict = ans_dict.copy()
+    ans_dict.pop(list(ans_dict.keys())[0], None)  # remove the first element (csrfmiddlewaretoken)
+    resp_age = ans_dict['15']
+
+    ans_dict.pop('15', None)  # pop the answers that don't take part in prediction
+    ans_dict.pop('16', None)
+
+    # convert into the list
+    ans_list = []
+    for i in range(14):
+        ans_list.append(0)
+    for key in ans_dict.keys():
+        ans_list[int(key) - 1] = int(ans_dict[key])
+
+    # predict
+    age_regr = Model(
+        #model_path=os.path.join( 'age_prediction/age_pred_rf.sav'),
+        model_path=os.path.join(os.path.dirname(__file__), 'age_prediction/age_pred_rf.sav'),
+
+    )
+    age = age_regr.predict([ans_list], transform=False)
+
+    if verbose:
+        print(f"--- Answer list: {ans_list}")
+        print(f"--- Predicted trajectory number: {age}")
+
+    return age
+
+
