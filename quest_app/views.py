@@ -4,10 +4,10 @@ from .models import Question, Answer, Trajectory, SuccessStory
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
-from .ml_model.ml_model import predict_trajectory
+from .ml_models.main import predict_trajectory
 import time
 import random
-# import ml_model
+# import ml_models
 import os
 
 def home(request):

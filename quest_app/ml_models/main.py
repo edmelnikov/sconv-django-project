@@ -1,6 +1,7 @@
 import joblib
 import os
 
+
 # Model class that loads up the model and predicts the trajectory number
 class Model:
     '''
@@ -52,9 +53,11 @@ def predict_trajectory(ans_dict, verbose=False):
         ans_list[int(key) - 1] = int(ans_dict[key])
 
     # predict
-    model = Model(model_path=os.path.join(os.path.dirname(__file__), 'classifier/model.joblib'),
-                  trans_pipe_path=os.path.join(os.path.dirname(__file__), 'classifier/pipe_transforms.joblib'))
-    class_num = model.predict([ans_list])[0]
+    trajectory_classifier = Model(
+        model_path=os.path.join(os.path.dirname(__file__), 'trajectory_classification/model.joblib'),
+        trans_pipe_path=os.path.join(os.path.dirname(__file__), 'trajectory_classification/pipe_transforms.joblib')
+    )
+    class_num = trajectory_classifier.predict([ans_list])[0]
 
     if verbose:
         print(f"--- Answer list: {ans_list}")
