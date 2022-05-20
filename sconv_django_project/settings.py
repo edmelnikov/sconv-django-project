@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-jab(%+dfgy*_=$@12t&f(e5ej5967f20)1^ycg06rz6&d8anzf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['questionnaire.sconv.ru', 'www.questionnaire.sconv.ru']
 
 
 # Application definition
@@ -121,6 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
+
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
