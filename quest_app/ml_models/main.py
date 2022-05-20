@@ -50,6 +50,8 @@ def preprocess_dict(ans_dict):
     for key in ans_dict.keys():
         ans_list[int(key) - 1] = int(ans_dict[key])
 
+    if ans_list[-1] == 4:
+        ans_list[-1] = 5
     return ans_list
 
 

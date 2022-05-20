@@ -37,7 +37,7 @@
                                         </div>
                                     {% endif %}
                                     <ul class="list-unstyled">
-                                        {% for answer in question.Question.all %}
+                                        {% for answer in question.answer_set.all %}
                                             <li>
                                                 {% if answer.text %}
                                                     <div class="radio">

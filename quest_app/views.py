@@ -1,4 +1,3 @@
-from tkinter.messagebox import QUESTION
 from django.shortcuts import render, HttpResponse
 from .models import Question, Answer, Trajectory, SuccessStory
 from django.http import Http404
@@ -15,38 +14,47 @@ def home(request):
 
 
 def questionnaire(request):
-    answers = Answer.objects.all()
-    questions = Question.objects.order_by('id')
-
     if request.method == "POST":  # if a user makes a POST request (i. e. answers the questionnaire)
         user_answers = request.POST.dict()  # get answers from the form
 
+        context = {
+            'trajectory': None,
+            'success_story': None,
+            'success_age': None,
+            'years_to_success': None
+        }
+
         trajectory_num = predict_trajectory(user_answers, verbose=True)  # predict the trajectory
+        # trajectory_num = 3
         success_age = predict_success_age(user_answers, verbose=True)  # predict the age of initial success
+        context['success_age'] = success_age
+        context['years_to_success'] = success_age - int(user_answers['15'])
 
         try:  # check if the trajectory exists
             trajectory = Trajectory.objects.get(number=trajectory_num)
+            context['trajectory'] = trajectory
         except Trajectory.DoesNotExist:
             trajectory = None
 
-        years_to_success = -1
-        if trajectory is not None:
-            years_to_success = int(success_age) - int(user_answers['15'])  # calculate years to success, if the predicted trajectory exists
+        if trajectory is not None:  # search for a random success story related to the predicted trajectory
+            stories = trajectory.successstory_set.all()
+        else:  # if the trajectory has not been found, then look for any random story (unused feature)
+            stories = SuccessStory.objects.all()
 
-        context = {
-            'trajectory': trajectory,  # either a predicted trajectory or a random success story
-            'years_to_success': years_to_success
-        }
+        num_stories = stories.count()
+        if num_stories > 0:
+            rand_story_id = random.randint(0, num_stories - 1)
+            context['success_story'] = stories[rand_story_id]
 
-        if years_to_success < 0:  # search for a random success story
-            num_stories = SuccessStory.objects.all().count()
-            rand_story_id = random.randint(1, num_stories)
-            rand_story = SuccessStory.objects.get(id=rand_story_id)
-            context['trajectory'] = rand_story  # add the story to the context
+        # context['years_to_success'] = int(success_age) - int(user_answers['15'])  # calculate years to success
+        # Trajectory.objects.get(id=1).successstory_set.all()
 
         return render(request, 'quest_app/trajectory_descr.html', context)  # return a page with the predicted trajectory
     else:  # if a user makes a GET request
-        context = {'questions': questions, 'answers': answers}
+        # answers = Answer.objects.all()
+        questions = Question.objects.order_by('number')
+
+        context = {'questions': questions}
         return render(request, 'quest_app/questionnaire.html', context)  # render a page with questions and answers
 
 

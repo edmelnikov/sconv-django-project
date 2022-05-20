@@ -29,8 +29,8 @@
     <div class="container">
         <div class='result-container'>
             <div class='personality-result'>
-                {% if trajectory != None %}
-                    <div class="container">
+                <div class="container">
+                    {% if trajectory != None %}
                         <div class="row mb-5">
                             <div class="col-lg-3 col-sm-12 mb-sm-5 mt-sm-5 text-center">
                                 <!--<img class="personality-img" src="{% static 'quest_app/img/test-result.jpg' %}" alt="photo" width="180px" height="180px">-->
@@ -43,31 +43,43 @@
                             <div class="col-lg-9 col-sm-12">
                                 <div class='personality'>
                                     <div class='personality-type'>
-                                        {% if years_to_success < 0 %}
-                                            История успеха {{ trajectory.name }}
-                                        {% else %}
-                                            Твой тип личности: {{ trajectory.name }}
-                                        {% endif %}
+                                        Твой тип личности: {{ trajectory.name }}
                                     </div>
                                     <div class="personality-description">
                                         {{ trajectory.description }}
                                     </div>
-                                </div> <br>
+                                </div>
+                                <br>
                                     {% if years_to_success < 0 %}
                                         <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
                                     {% else %}
                                         <!-- For testing purposes. May be removed later  -->
-                                        <div class="text-advice"> До успеха осталось {{ years_to_success }}  лет </div>
+                                        <div class="text-advice"> Возраст первого успеха: {{ success_age|add:"-5" }} - {{ success_age|add:"5" }} </div>
                                     {% endif %}
                             </div>
-<!--                    {% if years_to_success < 0 %}
-                        <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
-                    {% endif %}-->
+
+
+
                         </div>
-                    </div>
-                {% else %}
-                    <p>Траектория не найдена</p>
-                {% endif %}
+
+                        <!-- Случайная история -->
+                        <div class="row mb-5">
+                            {% if success_story != None %}
+                                <p> История успеха {{ success_story.name }}</p>
+                                <p> {{ success_story.description }} </p>
+                                {% if success_story.image %}
+                                    <div class="personality-img">
+                                        <img class="img-fluid" src="{{ success_story.image.url }}" alt="photo">
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <p>История не найдена!</p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <p> Траектория не найдена! </p>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
