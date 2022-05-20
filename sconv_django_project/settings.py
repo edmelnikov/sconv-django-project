@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'sconv_django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u0964516_dj_questionnaire_db',
+        'USER':'u0964516_default',
+        'PASSWORD': 'ZXG0L_Nn', 
+        'HOST': 'localhost'
+
     }
 }
 
