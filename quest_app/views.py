@@ -24,10 +24,10 @@ def questionnaire(request):
             'years_to_success': None
         }
 
-        trajectory_num = predict_trajectory(user_answers, verbose=True)  # predict the trajectory
-        # trajectory_num = 3
-        success_age = predict_success_age(user_answers, verbose=True)  # predict the age of initial success
-        # success_age = 25
+        #trajectory_num = predict_trajectory(user_answers, verbose=True)  # predict the trajectory
+        trajectory_num = 1
+        #success_age = predict_success_age(user_answers, verbose=True)  # predict the age of initial success
+        success_age = 25
         context['success_age'] = success_age
         context['years_to_success'] = success_age - int(user_answers['15'])
 

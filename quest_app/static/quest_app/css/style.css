@@ -1,7 +1,7 @@
 body{
-    /*background-color:#EAEAEA ;*/
     background-image: url("../img/im6.png");
     background-size: 150%;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .main-container{
@@ -27,7 +27,6 @@ h3{
     margin-right: auto;
     display: block;
     margin-bottom: 30px;
-    /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);*/
     border-radius: 30px;
 }
 
@@ -88,7 +87,6 @@ h3{
 .input-send{
     border: none;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
@@ -116,7 +114,6 @@ h3{
     cursor: pointer;
     position: relative;
     padding-left: 35px;
-    font-family: 'Poppins', sans-serif;
     font-weight: 550;
     font-size: 20px;
     color: #1C1C27;
@@ -168,7 +165,6 @@ input[type=radio]:checked + label:before {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
     font-size: 20px;
@@ -180,7 +176,6 @@ input[type=radio]:checked + label:before {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
     font-size: 20px;
@@ -217,7 +212,6 @@ input[type=radio]:checked + label:before {
     margin-left: auto;
     margin-right: auto;
     width: 200px;
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
     font-size: 16px;
@@ -256,7 +250,6 @@ input[type=radio]:checked + label:before {
 }
 
 .button-start-text{
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
@@ -277,44 +270,64 @@ input[type=radio]:checked + label:before {
 }
 
 .personality{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .personality-img{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .personality-img img{
     border-radius: 10px;
 }
 
+.personality-img-rand img{
+    border-radius: 10px;
+    width: 60%;
+    height: 60%;
+}
+
 .text-advice{
-    font-family: 'Poppins', sans-serif;
     align-items: center;
-    font-weight: 500;
+    font-weight: 550;
     font-size: 20px;
     color: #1C1C27;
     font-style: normal;
     line-height: 21px;
+    text-decoration: underline;
 }
 
 .personality-type{
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 550;
     font-size: 20px;
     line-height: 21px;
     color: #1C1C27;
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.personality-type-success{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 18px;
+    line-height: 21px;
     color: #1C1C27;
+    text-align: center;
     margin-bottom: 10px;
 }
 
 .personality-description{
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+    line-height: 21px;
+    color: #1C1C27;
+}
+.personality-description-success{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 21px;
     color: #1C1C27;
 }
@@ -339,7 +352,6 @@ input[type=radio]:checked + label:before {
 }
 
 .button-results-text{
-    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
@@ -362,7 +374,6 @@ input[type=radio]:checked + label:before {
 
 #progress-bar {
   height: 30px;
-  background-image: url("../img/chevron-double-right.svg");
   background-color: white;
   background-size: 30px;
   border-radius: 30px;
