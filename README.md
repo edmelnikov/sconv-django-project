@@ -4,6 +4,7 @@
 
 ## Initial Setup 
 ```
+$ pip install -r requirements.txt # Its important to have sckikit-learn=1.0.2
 $ python manage.py makemigrations <appname>
 $ python manage.py migrate
 
