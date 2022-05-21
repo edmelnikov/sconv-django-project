@@ -46,10 +46,10 @@ def preprocess_dict(ans_dict):
     # convert into the list
     ans_list = []
     for i in range(14):
-        ans_list.append(0)
+        ans_list.append(0)  # append default values
+    ans_list[12] = 1  # here we use 1 as a default since question 12 does not have answers with number 0
     for key in ans_dict.keys():
         ans_list[int(key) - 1] = int(ans_dict[key])
-
     if ans_list[-1] == 4:
         ans_list[-1] = 5
     return ans_list

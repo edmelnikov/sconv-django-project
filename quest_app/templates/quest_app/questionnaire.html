@@ -22,37 +22,37 @@
                 {% csrf_token %}
                 {% if questions %}
                     {% for question in questions %}
-                        <div class="container">
-                            <div class="question {{ question.number }}" style="display: none">
-                                <div class="answer-text">
-                                    <div class="text-index">
-                                        {{question.text}}
+                        {%if question.number <= 14 %}
+                            <div class="container">
+                                <div class="question {{ question.number }}" style="display: none">
+                                    <div class="answer-text">
+                                        <div class="text-index">
+                                            {{question.text}}
+                                        </div>
+                                    </div>
+
+                                    <div class="answers">
+                                         {% if question.image %}
+                                            <div class="container">
+                                                <img class = "question-img" src="{{ question.image.url }}">
+                                            </div>
+                                        {% endif %}
+                                        <ul class="list-unstyled">
+                                            {% for answer in question.answer_set.all %}
+                                                <li>
+                                                    {% if answer.text %}
+                                                        <div class="radio">
+                                                            <input id="answer-{{answer.id}}" type="radio" name={{question.number}} value={{answer.number}}>
+                                                            <label for="answer-{{answer.id}}">{{answer.text}}</label> <br>
+                                                        </div>
+                                                    {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <div class="answers">
-                                     {% if question.image %}
-                                        <div class="container">
-                                            <img class = "question-img" src="{{ question.image.url }}">
-                                        </div>
-                                    {% endif %}
-                                    <ul class="list-unstyled">
-                                        {% for answer in question.answer_set.all %}
-                                            <li>
-                                                {% if answer.text %}
-                                                    <div class="radio">
-                                                        <input id="answer-{{answer.id}}" type="radio" name={{question.number}} value={{answer.number}}>
-                                                        <label for="answer-{{answer.id}}">{{answer.text}}</label> <br>
-                                                    </div>
-                                                {% endif %}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-
-                                </div>
-
                             </div>
-                        </div>
+                        {% endif %}
                     {% endfor %}
                     <div class="container">
                         <div class="question 15" style="display: none">

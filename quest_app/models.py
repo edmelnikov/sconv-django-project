@@ -21,7 +21,8 @@ class Answer(models.Model):
 
     number = models.IntegerField(verbose_name='Представление ответа цифрой')
     text = models.TextField(verbose_name='Текст ответа')
-    related_question_id = models.ForeignKey(Question,
+    related_question_number = models.ForeignKey(Question,
+                                            # to_field='number',
                                             on_delete=models.CASCADE,
                                             verbose_name='Соответствующий вопрос')
 
@@ -51,7 +52,8 @@ class SuccessStory(models.Model):
     name = models.CharField(max_length=128, verbose_name='Имя личности')
     description = models.TextField(verbose_name='Описание')
     image = models.ImageField(null=True, blank=True, upload_to='quest_app/img', verbose_name='Картинка')
-    related_trajectory_id = models.ForeignKey(Trajectory,
+    related_trajectory_number = models.ForeignKey(Trajectory,
+                                              # to_field='number',
                                               on_delete=models.CASCADE,
                                               verbose_name='Соответствующая траектория')
 
