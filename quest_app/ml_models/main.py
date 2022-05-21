@@ -71,7 +71,7 @@ def predict_trajectory(ans_dict, verbose=False):
 
     if verbose:
         print(f"--- Answer list: {ans_list}")
-        print(f"--- Predicted trajectory number: {class_num}")
+        print(f"--- Predicted age number: {class_num}")
 
     return class_num
 
