@@ -49,19 +49,14 @@
                                         {{ trajectory.description }}
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row mb-5">
-                            <div class="col-lg-12 col-sm-12 text-center">
+                                <br><br>
                                 <div class="text-advice"> Возраст первого успеха: {{ success_age|add:"-5" }} - {{ success_age|add:"5" }} </div>
                                 {% if years_to_success < 0 %}
-                                    <br>
                                     <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
                                 {% endif %}
                             </div>
                         </div>
-
 
                         <!-- Случайная история -->
                         <div class="row mb-2">
@@ -101,16 +96,6 @@
                 <div class='button-results-text'>На главную</div>
             </div>
         </a>
-
-    <!--<div class='main-container'>
-        Номер траектории: {{ trajectory.number }}
-        <br>
-        Название траектории: {{ trajectory.name }}
-        <br>
-        Текст траектории: {{ trajectory.description }}
-        <br>
-        Возраст первого успеха: {{ trajectory.initial_success_age }}
-    </div>-->
 
     </div>
 </body>

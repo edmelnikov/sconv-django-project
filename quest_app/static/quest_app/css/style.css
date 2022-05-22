@@ -290,11 +290,11 @@ input[type=radio]:checked + label:before {
 .text-advice{
     align-items: center;
     font-weight: 550;
-    font-size: 20px;
+    font-size: 18px;
     color: #1C1C27;
     font-style: normal;
     line-height: 21px;
-    text-decoration: underline;
+    text-align: center;
 }
 
 .personality-type{
