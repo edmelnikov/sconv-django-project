@@ -54,11 +54,10 @@
 
                         <div class="row mb-5">
                             <div class="col-lg-12 col-sm-12 text-center">
+                                <div class="text-advice"> Возраст первого успеха: {{ success_age|add:"-5" }} - {{ success_age|add:"5" }} </div>
                                 {% if years_to_success < 0 %}
+                                    <br>
                                     <div class="text-advice"> Советуем поторопиться, либо выбрать стратегию позднего успеха! </div>
-                                {% else %}
-                                    <!-- For testing purposes. May be removed later  -->
-                                    <div class="text-advice"> Возраст первого успеха: {{ success_age|add:"-5" }} - {{ success_age|add:"5" }} </div>
                                 {% endif %}
                             </div>
                         </div>
