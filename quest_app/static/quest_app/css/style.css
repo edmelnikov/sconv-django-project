@@ -249,6 +249,21 @@ input[type=radio]:checked + label:before {
     text-decoration: none;
 }
 
+.class-button-index-container{
+    margin:auto;
+    display: flex;
+}
+
+.class-button-index-container :not(:last-child){
+    margin-right: 100px;
+}
+
+.class-button-index{
+    display: flex;
+    justify-content: center;
+}
+
+
 .button-start-text{
     font-style: normal;
     font-weight: 600;
