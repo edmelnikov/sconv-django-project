@@ -231,46 +231,18 @@ input[type=radio]:checked + label:before {
 }
 
 .button-start-index{
+    margin: 0 auto;
     width: 200px;
     background-color: rgb(255, 145, 0);
-    margin:auto;
     cursor: pointer;
-    height: 65px;
+    padding: 15px;
     background: #101010;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    margin-top: 45px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-}
-
-.index-a, .index-a:hover, .index-a:active{
-    text-decoration: none;
-}
-
-.class-button-index-container{
-    margin:auto;
-    display: flex;
-}
-
-.class-button-index-container :not(:last-child){
-    margin-right: 100px;
-}
-
-.class-button-index{
-    display: flex;
-    justify-content: center;
-}
-
-
-.button-start-text{
-    font-style: normal;
     font-weight: 600;
-    font-size: 17px;
-    line-height: 21px;
     color: #FFFFFF;
-    margin:auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .result-container{
@@ -279,7 +251,6 @@ input[type=radio]:checked + label:before {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;   
     display: block;
-    margin-bottom: 20px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
 }
